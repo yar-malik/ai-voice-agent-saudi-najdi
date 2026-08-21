@@ -54,14 +54,16 @@ Both end in the same place. Start with whichever suits the team you have.
 
 ## Quick start
 
-You need a Voho API key. Create one at [app.voho.ai](https://app.voho.ai) under
-**API Tokens**.
+You need a Voho API key — `setup.py` walks you through getting one at
+[app.voho.ai](https://app.voho.ai) under **API Tokens**, checks it against the
+live voice catalogue so a typo fails now rather than on a call, and writes it
+to `.env`.
 
 ```bash
 git clone https://github.com/yar-malik/ai-voice-agent-saudi-najdi.git
 cd ai-voice-agent-saudi-najdi
 pip install -r requirements.txt
-cp .env.example .env      # then paste your key into .env
+python setup.py           # asks for your Voho key and verifies it
 ```
 
 ### Hear it without a phone number

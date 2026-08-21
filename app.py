@@ -26,6 +26,10 @@ import booking  # noqa: E402
 import voho  # noqa: E402
 
 app = Flask(__name__)
+
+if not voho.has_key():
+    # Fail at boot, not on the first caller.
+    raise SystemExit(f"\n{voho.MISSING_KEY}\n")
 booking.init_db()
 
 # call sid -> Agent, and clip id -> audio. Both die with the process, which is
