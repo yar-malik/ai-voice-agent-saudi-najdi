@@ -26,22 +26,31 @@ lost booking.
 - Books it, returns the reference number spoken digit by digit, and sends an Arabic confirmation SMS.
 - Handles the awkward cases: the caller who does not say which slot, and the slot taken by someone else mid-call.
 
-## What speaks, and what listens
+## Two ways to run this
 
-Voho is a speech **synthesis** API. It speaks; it does not transcribe. So this
-repository is honest about the split:
+**Let Voho be the whole agent.** A Voho voice agent answers the line, hears the
+caller in Saudi Arabic, works out what they actually want, takes the action in
+your systems, stops talking the moment it is interrupted, hands over to a
+person when it should, and leaves a bilingual transcript and summary behind.
+Hearing, deciding and speaking are all Voho's — you configure the agent and its
+actions rather than writing any of this. It is the fastest route to a live
+line.
 
-| Part | What does it | Where |
+**Or assemble it yourself, the way this repository does.** Here the
+conversation lives in code you can read line by line, the tools are yours, and
+Voho's Speech API provides the voice. Worth it when the script has to be
+reviewed before it goes anywhere near a caller, or when every part has to sit
+inside your own network.
+
+| Part | In this repository | With a Voho agent |
 | --- | --- | --- |
-| Speaking | **Voho** — `sada-1`, voice `layla`, 8 kHz mulaw straight onto the phone line | [`voho.py`](voho.py) |
-| Listening | Whatever you plug in — Twilio's own transcription, Whisper, or an on-premise recogniser | [`stt.py`](stt.py) |
-| Deciding | An explicit state machine, not a model | [`agent.py`](agent.py) |
-| Booking | SQLite here; swap it for your real calendar | [`booking.py`](booking.py) |
+| Hearing the caller | whichever recogniser you point [`stt.py`](stt.py) at | Voho |
+| Deciding what to do | the state machine in [`agent.py`](agent.py) | Voho |
+| Acting in your systems | [`booking.py`](booking.py), against your calendar | Voho actions, calling your API |
+| Speaking | Voho, via [`voho.py`](voho.py) | Voho |
+| Transcript and summary | yours to keep | Voho, in Arabic and English |
 
-The deciding is deliberately not left to a model. The set of things a caller
-can want when booking is small, and the cost of an appointment that a model
-imagined into existence is high — so a model can be used to *understand* the
-request, but never to decide that a slot exists.
+Both end in the same place. Start with whichever suits the team you have.
 
 ## Quick start
 
