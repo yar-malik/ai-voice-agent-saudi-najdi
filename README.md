@@ -73,49 +73,44 @@ Both end in the same place. Start with whichever suits the team you have.
 
 ## Quick start
 
-You need a Voho API key — `setup.py` walks you through getting one at
-[app.voho.ai](https://app.voho.ai) under **API Tokens**, checks it against the
-live voice catalogue so a typo fails now rather than on a call, and writes it
-to `.env`.
+One key, one command, about a minute. Get a key at
+[app.voho.ai/tokens](https://app.voho.ai/tokens) — new accounts start with
+**$25 of credit**, which is enough to run this many times over.
 
 ```bash
 git clone https://github.com/yar-malik/ai-voice-agent-saudi-najdi.git
 cd ai-voice-agent-saudi-najdi
-pip install -r requirements.txt
-python setup.py           # asks for your Voho key and verifies it
+export VOHO_API_KEY=voho_sk_live_...
 ```
 
-### Hear it without a phone number
+### Node — no dependencies, Node 18+
 
 ```bash
-python examples/cli.py
+npm start
+# or: node examples/node/index.mjs ["what the caller says"]
 ```
 
-Type what a caller would say, in Arabic. Each reply is synthesised with Voho
-and written to `out/`, so you can listen to exactly what the caller would have
-heard. Press Enter on an empty line to run the built-in script instead:
-
-```
-  Voho  عيادة النخبة، معك ليلى. كيف أقدر أساعدك؟
-Caller  أبغى موعد عند دكتور أسنان الأسبوع الجاي
-  Voho  عندنا السبت الساعة 9 صباحاً، أو الأحد الساعة 9 صباحاً. أيهم يناسبك؟
-Caller  تمام، خلها الموعد الأول
-  Voho  تم الحجز السبت الساعة 9 صباحاً مع د. سارة القحطاني. رقم الموعد 2 0 0 0 1.
-```
-
-Add `--silent` to skip synthesis and read the conversation only — useful before
-you have a key.
-
-### Put it on a real number
+### Python — no dependencies, Python 3.9+
 
 ```bash
-export PUBLIC_URL=https://your-tunnel.ngrok.io
-python app.py
+python examples/python/main.py ["what the caller says"]
 ```
 
-Point a Twilio number's **Voice** webhook at `POST /voice`. That is the whole
-integration: Twilio calls the app once per turn, the app hands back TwiML with
-a URL to play, and the audio is synthesised on demand.
+Either one speaks a line in Najdi Arabic and writes voho.mp3. Set VOHO_AGENT_ID and it holds a conversation instead, writing the reply as reply.mp3.
+
+### Have it answer back
+
+Speaking a line needs nothing but a key. To hold a conversation, create an
+agent at [app.voho.ai/agents](https://app.voho.ai/agents) — pick a template,
+edit the prompt — then take its id from the URL:
+
+```bash
+export VOHO_AGENT_ID=...        # from app.voho.ai/agents/<id>
+npm start "أبي أعرف عن خدماتكم"
+```
+
+The agent answers from its own prompt, in its own voice, and `reply.mp3` is
+what the caller would have heard.
 
 ## Voices
 
