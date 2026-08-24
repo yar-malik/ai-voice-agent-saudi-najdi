@@ -17,6 +17,25 @@ lost booking.
   <b><a href="https://voho.ai/demos/appointment-booking">▶ Play the live demo</a></b> — runs in your browser, no sign-up.
 </p>
 
+<!-- voho:try -->
+## Try it in your browser first
+
+You do not have to clone anything to see whether this works for you. The same
+engine this repository calls is running at **[app.voho.ai/agents](https://app.voho.ai/agents)** —
+Build an agent and talk to it out loud, in the browser, in about a minute.
+
+New accounts start with **$25 of credit**, and one balance and one API key
+cover every Voho product: AI Call Center, and the five beside it.
+
+- **[Build an agent and talk to it out loud →](https://app.voho.ai/agents)**
+- [Get an API key](https://app.voho.ai/tokens) — the key this repository needs
+- [Read the API docs](https://docs.voho.ai)
+
+Running it inside your own estate, against your own systems, is what we do
+with you: [talk to us](https://voho.ai/book-demo).
+
+---
+
 ---
 
 ## What this does
@@ -142,7 +161,7 @@ nothing else in the code changes.
 | [ai-voice-agent-saudi-najdi](https://github.com/yar-malik/ai-voice-agent-saudi-najdi) | Booking appointments by phone | [Play it](https://voho.ai/demos/appointment-booking) |
 | [realtime-arabic-voice-agent-najdi](https://github.com/yar-malik/realtime-arabic-voice-agent-najdi) | Streaming answers from your own documents | [Play it](https://voho.ai/demos/realtime-arabic-rag) |
 | [charco-voice-agent-najdi](https://github.com/yar-malik/charco-voice-agent-najdi) | Taking restaurant orders by phone | [Play it](https://voho.ai/demos/restaurant-ordering) |
-| [saudi-arabic-voice-agent](https://github.com/yar-malik/saudi-arabic-voice-agent) | Phone agents in Najdi Arabic | [Play it](https://voho.ai/demos/contact-center-ai) |
+| [saudi-arabic-voice-agent](https://github.com/yar-malik/saudi-arabic-voice-agent) | Phone agents in Najdi Arabic | [Play it](https://voho.ai/demos/ai-call-center) |
 | [arabic-document-ai](https://github.com/yar-malik/arabic-document-ai) | Reading Saudi invoices, IDs and contracts | [Play it](https://voho.ai/demos/document-ai) |
 
 ## Want this in production?
