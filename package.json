@@ -1,0 +1,12 @@
+{
+  "name": "ai-voice-agent-saudi-najdi",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A phone agent for Saudi businesses that answers in Najdi Arabic, checks real availability, and books the appointment before the caller hangs up. Built on the Voho speech API.",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node examples/node/index.mjs"
+  },
+  "license": "MIT"
+}
